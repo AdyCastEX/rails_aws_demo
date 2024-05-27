@@ -13,6 +13,12 @@ services:
       - 3000:3000
     depends_on:
       - db
+    environment:
+      - RAILS_ENV=${RAILS_ENV}
+      - DATABASE_URL=${DATABASE_URL}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGPASSWORD=${PGPASSWORD}
 
   db:
     image: postgres:15
