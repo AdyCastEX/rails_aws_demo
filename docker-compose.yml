@@ -41,6 +41,18 @@ services:
     depends_on:
       - web
 
+  cssbuild:
+    build: .
+    # --watch=always so it doesn't stop after building once
+    command: /bin/sh -c "yarn build:css --watch=always"
+    volumes:
+      - '.:/app'
+      - 'node_modules:/app/node_modules'
+    ports:
+      - 3036:3036
+    depends_on:
+      - web
+
 volumes:
   rubygems:
   pgdata:
